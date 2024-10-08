@@ -27,8 +27,8 @@ if __name__ == '__main__':
         prog="find_herit.py",
         description="Finds words based on the provided pattern"
     )
-    parser.add_argument('-i', '--input', required=True, help='Provide input file')
-    parser.add_argument('-o', '--output', required=True, help='Provide output filename')
+    parser.add_argument('-i', '--input', default='origin.txt', help='Provide input file (default: origin.txt)')
+    parser.add_argument('-o', '--output', default='output.txt', help='Provide output filename (default: output.txt)')
     parser.add_argument('-p', '--pattern', default=r'\b(inherit(?:able|ance|ed|ing)?|heritable|heredity)\b',
                         help='Regex pattern to search for (default: heritability-related words)')
 
@@ -36,3 +36,5 @@ if __name__ == '__main__':
 
     # Call the function to process the file with user-provided arguments
     find_words_in_file(args.input, args.output, args.pattern)
+    print(f"Searching {args.input}, outputting to {args.output}, and using this pattern: {args.pattern}")
+
